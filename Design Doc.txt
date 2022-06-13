@@ -1,0 +1,26 @@
+Raze the Tower
+
+You are an warrior who stumbles upon a forgotten tower
+Noticing three statues (Melee, Ranger, Mage) outside the entrance, you decide to pick up the statue's sword and enter
+(MVP, just melee is playable)
+
+you enter the tower, there is a ladder, you can see the light fade around you as you approach it
+Sheathing your sword, with a torch clenched in your teeth, you begin to climb
+
+Level 1
+You open a trap door at the top of the ladder, revealing an anvil, cracked in two
+Noticing a door in the wall, you approach it
+Hearing the screech of a goul, you burst in and slay it.
+	He had a bigger friend, with some kind of glowing orb within him
+Slaying him as well, you reach into its ectoplasm to retrieve the orb
+	it begins to swirl around you, rythmicly 
+Proceeding through another door, you see an empty room with another ladder
+Upstairs you see another anvil, this time, it worbles at the same frequency as your following orb
+	Placing the orb on the anvil, you land a mighty blow, cracking the orb and releasing some magic
+		(Choose an upgrade)
+Into the next room, another creature, another orb
+	But in the following room, you are blindsided by a swift goblin.
+		Except, instead of being run through, the orb quickly darts to intercept the goblin's blow
+		Saving you but being destroyed in the process
+Your goal is to reach the top of the tower, trying to defeat the final boss
+	...before your torch runs out (5 minutes)
