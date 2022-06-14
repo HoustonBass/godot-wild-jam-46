@@ -1,0 +1,14 @@
+MVP:
+	add attack hit boxes
+	add enemies
+	add enemy drops
+	add ladders
+	add upgrade mechanic (anvil?)
+Bugs:
+
+Cool Ideas:
+	Chanage cursor to reflect attack cooldown
+
+Done:
+	Finish floor/wall tilemap
+	add character movement

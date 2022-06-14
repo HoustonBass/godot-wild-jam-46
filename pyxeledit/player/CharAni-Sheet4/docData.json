@@ -1,0 +1,91 @@
+{
+  "name": "CharAni-Sheet4.png",
+  "version": "0.4.9",
+  "canvas": {
+    "tileWidth": 32,
+    "width": 320,
+    "tileHeight": 32,
+    "currentLayerIndex": 0,
+    "height": 768,
+    "layers": {
+      "0": {
+        "muted": false,
+        "alpha": 255,
+        "collapsed": false,
+        "hidden": false,
+        "tileRefs": {},
+        "type": "tile_layer",
+        "soloed": false,
+        "name": "Layer 0",
+        "parentIndex": -1,
+        "blendMode": "normal"
+      }
+    },
+    "numLayers": 1
+  },
+  "settings": {},
+  "tileset": {
+    "tileHeight": 32,
+    "fixedWidth": true,
+    "numTiles": 0,
+    "tileWidth": 32,
+    "tilesWide": 8
+  },
+  "animations": {
+    "0": {
+      "length": 4,
+      "frameDuration": 100,
+      "name": "Idle",
+      "frameDurationMultipliers": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "baseTile": 0
+    },
+    "1": {
+      "length": 8,
+      "frameDuration": 100,
+      "name": "Walk - Right",
+      "frameDurationMultipliers": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "baseTile": 10
+    }
+  },
+  "palette": {
+    "numColors": 20,
+    "height": 5,
+    "colors": {
+      "0": "ff000000",
+      "1": "ffffffff",
+      "2": "ff9d9d9d",
+      "3": "ffe06f8b",
+      "4": "ffbe2633",
+      "5": "ff493c2b",
+      "6": "ffa46422",
+      "7": "ffeb8931",
+      "8": null,
+      "9": null,
+      "10": null,
+      "11": null,
+      "12": "fff7e26b",
+      "13": "ffa3ce27",
+      "14": "ff44891a",
+      "15": "ff2f484e",
+      "16": "ff1b2632",
+      "17": "ff005784",
+      "18": "ff31a2f2",
+      "19": "ffb2dcef"
+    },
+    "width": 12
+  }
+}
