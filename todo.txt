@@ -1,12 +1,16 @@
 MVP:
 	add attack hit boxes
+	add tilemap for enemies
 	add enemies
-	add enemy drops
-	add ladders
-	add upgrade mechanic (anvil?)
+	make enemies follow player
+	add orbs to enemies that drop
+	make orbs follow player
+	add level with old man to trade
+	add trade interface (E to break)
 Bugs:
 
 Cool Ideas:
+	Screen wipe on level change
 	Chanage cursor to reflect attack cooldown
 
 Done:

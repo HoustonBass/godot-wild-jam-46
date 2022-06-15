@@ -1,7 +1,10 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Assets/Instances/PLayer/CharAni-Sheet4.png" type="Texture" id=1]
-[ext_resource path="res://Instances/Player.gd" type="Script" id=2]
+[ext_resource path="res://Instances/Player/Player.gd" type="Script" id=2]
+[ext_resource path="res://Resources/Instances/Player/PlayerData.tres" type="Resource" id=3]
+[ext_resource path="res://Instances/Orb/Orb.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Instances/Player/Orbs.gd" type="Script" id=5]
 
 [sub_resource type="Animation" id=5]
 resource_name = "Attack - Right"
@@ -97,9 +100,12 @@ transitions = [ "Attack - Right", "Idle", SubResource( 9 ), "Idle", "Attack - Ri
 [sub_resource type="AnimationNodeStateMachinePlayback" id=2]
 
 [sub_resource type="CapsuleShape2D" id=6]
+radius = 8.0
+height = 14.0
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" groups=["Player"]]
 script = ExtResource( 2 )
+player_data = ExtResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Idle"
@@ -111,14 +117,17 @@ blend_times = [ "Idle", "Idle", 0.003 ]
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 1 )
 anim_player = NodePath("../AnimationPlayer")
-active = true
 parameters/playback = SubResource( 2 )
+
+[node name="Orbs" type="Node2D" parent="."]
+script = ExtResource( 5 )
+Orb = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 hframes = 10
 vframes = 24
-frame = 1
+frame = 160
 
 [node name="HitBox" type="CollisionShape2D" parent="."]
 scale = Vector2( 0.5, 0.4 )
@@ -133,3 +142,4 @@ monitorable = false
 polygon = PoolVector2Array( 5, 8, 16, 0, 8, -9 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
+current = true

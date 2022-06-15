@@ -8,11 +8,31 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Resource",
+"class": "PlayerData",
+"language": "GDScript",
+"path": "res://Data/PlayerData.gd"
+}, {
+"base": "TileMap",
+"class": "TileMapSpawner",
+"language": "GDScript",
+"path": "res://Instances/TileMapSpawner.gd"
+} ]
+_global_script_class_icons={
+"PlayerData": "",
+"TileMapSpawner": ""
+}
+
 [application]
 
 config/name="Raze The Tower"
-run/main_scene="res://Scenes/World.tscn"
+run/main_scene="res://Scenes/Levels/Level_1.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+LevelManager="*res://Singletons/LevelManager.gd"
 
 [display]
 

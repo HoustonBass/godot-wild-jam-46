@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Resources/Decorations_large_tiles.tres" type="TileSet" id=1]
+[ext_resource path="res://Resources/Decorations_small_tiles.tres" type="TileSet" id=2]
+[ext_resource path="res://Resources/Wall_tiles.tres" type="TileSet" id=3]
+[ext_resource path="res://Resources/Floor_tiles.tres" type="TileSet" id=4]
+[ext_resource path="res://Resources/Interactables_tiles.tres" type="TileSet" id=5]
+[ext_resource path="res://Scenes/Levels/Enemies.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/Levels/Interactables.gd" type="Script" id=7]
+[ext_resource path="res://Instances/Player/Player.tscn" type="PackedScene" id=8]
+
+[node name="World" type="Node2D"]
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Floors" type="TileMap" parent="YSort"]
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 16, 16 )
+format = 1
+
+[node name="Enemies" type="TileMap" parent="YSort"]
+visible = false
+format = 1
+script = ExtResource( 6 )
+
+[node name="Interactables" type="TileMap" parent="YSort"]
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 655364, 4, 0, 655380, 2, 0 )
+script = ExtResource( 7 )
+Player = ExtResource( 8 )
+
+[node name="Walls" type="TileMap" parent="YSort"]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 32 )
+cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
+show_collision = true
+format = 1
+tile_data = PoolIntArray( 786439, 0, 0, 786447, 0, 0 )
+
+[node name="Decorations_large" type="TileMap" parent="YSort"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+cell_tile_origin = 2
+cell_y_sort = true
+format = 1
+
+[node name="Pillars" type="TileMap" parent="YSort"]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+cell_y_sort = true
+format = 1
+
+[node name="Decorations_small" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+cell_y_sort = true
+format = 1
