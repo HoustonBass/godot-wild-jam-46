@@ -156,4 +156,9 @@ polygon = PoolVector2Array( 26, -27, 50, -26, 69, -18, 74, -6, 69, 5, 55, 13, 27
 [node name="DebugLine" type="Line2D" parent="."]
 width = 3.0
 
+[node name="RerunNav" type="Timer" parent="."]
+wait_time = 0.25
+autostart = true
+
 [connection signal="body_shape_entered" from="HitBox" to="." method="_on_HitBox_body_shape_entered"]
+[connection signal="timeout" from="RerunNav" to="." method="_on_RerunNav_timeout"]

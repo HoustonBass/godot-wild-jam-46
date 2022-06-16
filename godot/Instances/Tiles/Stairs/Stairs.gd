@@ -28,6 +28,6 @@ func _ready():
 	
 
 func _on_Stairs_body_shape_entered(_body_rid, body, _body_shape_index, _local_shape_index):
-	if body.is_in_group("Players"):
-		LevelManager.change_level()
+	if body.is_in_group("Player"):
+		LevelManager.next_level()
 		notify_box.set_disabled(true)

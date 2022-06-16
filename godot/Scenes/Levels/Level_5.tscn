@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Resources/Tiles/Decorations_large_tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Resources/Tiles/Decorations_small_tiles.tres" type="TileSet" id=2]
@@ -8,8 +8,10 @@
 [ext_resource path="res://Scenes/Levels/Enemies.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/Levels/Interactables.gd" type="Script" id=7]
 [ext_resource path="res://Instances/Player/Player.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Levels/Level.gd" type="Script" id=9]
 
-[node name="World" type="Node2D"]
+[node name="Level_5" type="Navigation2D"]
+script = ExtResource( 9 )
 
 [node name="YSort" type="YSort" parent="."]
 
@@ -19,7 +21,6 @@ cell_size = Vector2( 16, 16 )
 format = 1
 
 [node name="Enemies" type="TileMap" parent="YSort"]
-visible = false
 format = 1
 script = ExtResource( 6 )
 

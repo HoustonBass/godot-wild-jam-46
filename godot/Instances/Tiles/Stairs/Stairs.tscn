@@ -8,6 +8,7 @@ atlas = ExtResource( 1 )
 region = Rect2( 0, 160, 16, 16 )
 
 [node name="Stairs" type="Area2D" groups=["Stairs"]]
+collision_mask = 2
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

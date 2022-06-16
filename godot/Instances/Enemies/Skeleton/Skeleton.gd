@@ -3,11 +3,11 @@ extends KinematicBody2D
 onready var sprite:Sprite = $Sprite
 onready var debug_path:Line2D = $DebugLine
 
-var speed = 5
+var speed = 10
 var velocity = Vector2.ZERO
 var near_enough = 4
 
-var path = []
+var path: Array = []
 var player = null
 var nav: Navigation2D = null
 
@@ -48,3 +48,6 @@ func _on_HitBox_body_shape_entered(_body_rid, body, _body_shape_index, _local_sh
 func _on_DetectPlayer_body_shape_entered(_body_rid, body, _body_shape_index, _local_shape_index):
 	if body.is_in_group("Players"):
 		player = body
+
+func _on_RerunNav_timeout():
+	generate_path()
