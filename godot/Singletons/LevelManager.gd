@@ -33,8 +33,7 @@ func next_level():
 	level += 1
 	var next_level = level_map[level].instance()
 	current_level.queue_free()
-	root.add_child(next_level)
-	
+	root.call_deferred("add_child", next_level)
 
 #registration section
 var nav2d: Navigation2D = null setget register_nav2d, get_nav2d

@@ -15,13 +15,12 @@ func _ready():
 		set_cellv(pos, -1)
 
 func _convert_to_tile_name(pos: Vector2):
-	var cell_tile_id = self.get_cellv(pos)
-	var tile_name = self.get_tileset().tile_get_name(cell_tile_id)
+	var cell_tile_id = get_cellv(pos)
+	var tile_name = get_tileset().tile_get_name(cell_tile_id)
 	return tile_name
 
 func _create_skeleton(pos: Vector2):
 	var skeleton = Skelly.instance()
-	map_to_world(pos)
-	skeleton.position = map_to_world(pos)# - Vector2(75, 75)
+	skeleton.position = map_to_world(pos)
 	#todo, check if this is the best place/way to add this
 	add_to_parent(skeleton)
