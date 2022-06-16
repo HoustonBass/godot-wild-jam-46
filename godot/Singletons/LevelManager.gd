@@ -8,7 +8,13 @@ var Level_5 = preload("res://Scenes/Levels/Level_5.tscn")
 
 var level = 1
 var level_map
-var current_level
+var current_level = null setget register_level, get_level
+
+func register_level(node):
+	current_level = node
+func get_level():
+	return current_level
+
 onready var root = get_tree().get_root()
 
 func _ready():
@@ -28,3 +34,18 @@ func next_level():
 	var next_level = level_map[level].instance()
 	
 	root.add_child(next_level)
+
+#registration section
+var nav2d: Navigation2D = null setget register_nav2d, get_nav2d
+
+func register_nav2d(node):
+	nav2d = node
+func get_nav2d():
+	return nav2d
+
+var player = null setget register_player, get_player
+
+func register_player(node):
+	player = node
+func get_player():
+	return player

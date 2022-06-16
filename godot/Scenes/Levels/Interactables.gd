@@ -26,3 +26,4 @@ func _create_player(pos, right:bool):
 	var offset_pos = Vector2(pos.x + offset, pos.y)
 	player.position = map_to_world(offset_pos)
 	add_to_parent(player)
+	LevelManager.register_player(player)

@@ -12,8 +12,8 @@ func handle_tile(_tile_name: String, _pos: Vector2):
 	pass
 
 func _convert_to_tile_name(pos: Vector2):
-	var cell_tile_id = self.get_cellv(pos)
-	var tile_name = self.get_tileset().tile_get_name(cell_tile_id)
+	var cell_tile_id = get_cellv(pos)
+	var tile_name = get_tileset().tile_get_name(cell_tile_id)
 	return tile_name
 
 func add_to_parent(node):

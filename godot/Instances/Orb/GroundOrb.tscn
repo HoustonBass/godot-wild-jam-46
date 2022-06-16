@@ -40,10 +40,12 @@ tracks/1/keys = {
 radius = 3.0
 
 [node name="GroundOrb" type="KinematicBody2D"]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource( 2 )
 
 [node name="OrbSprite" type="Sprite" parent="."]
-position = Vector2( 0, -4.74733 )
+position = Vector2( 0, 4.58475 )
 scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 1 )
 hframes = 8
@@ -75,7 +77,7 @@ anims/Float = SubResource( 2 )
 
 [node name="HitBox" type="CollisionShape2D" parent="."]
 visible = false
-position = Vector2( 0, -4.74733 )
+position = Vector2( 0, 4.58475 )
 shape = SubResource( 4 )
 
 [connection signal="body_shape_entered" from="OrbSprite/CollectArea" to="." method="_on_CollectArea_body_shape_entered"]

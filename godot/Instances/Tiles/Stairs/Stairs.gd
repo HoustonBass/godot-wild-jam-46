@@ -1,6 +1,6 @@
 extends Area2D
 
-onready var notify_box = $NotifyBox
+onready var notify_box:CollisionPolygon2D  = $NotifyBox
 
 enum Direction {RIGHT, LEFT}
 var direction
@@ -22,11 +22,12 @@ func _ready():
 		Direction.RIGHT:
 			pass
 		Direction.LEFT:
-			notify_box.transform.set_scale(Vector2(-1,1))
+			notify_box.get_transform().scaled(Vector2(-1,1))
 		_:
 			print('did not handle direction %s for stairs' % direction)
 	
 
-func _on_Stairs_body_shape_entered(_body_rid, _body, _body_shape_index, _local_shape_index):
-	LevelManager.change_level()
-	notify_box.disabled = true
+func _on_Stairs_body_shape_entered(_body_rid, body, _body_shape_index, _local_shape_index):
+	if body.is_in_group("Players"):
+		LevelManager.change_level()
+		notify_box.set_disabled(true)

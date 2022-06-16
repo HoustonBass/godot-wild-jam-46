@@ -1,6 +1,6 @@
-extends TileMap
+extends TileMapSpawner
 
-export var Skeleton: PackedScene
+export var Skelly: PackedScene
 
 func _ready():
 	#todo, check if there is a better way to get specifically the stair tiles
@@ -12,6 +12,7 @@ func _ready():
 				_create_skeleton(pos)
 			_:
 				print('Could not create instance for tile: %s' % tile_name)
+		set_cellv(pos, -1)
 
 func _convert_to_tile_name(pos: Vector2):
 	var cell_tile_id = self.get_cellv(pos)
@@ -19,8 +20,8 @@ func _convert_to_tile_name(pos: Vector2):
 	return tile_name
 
 func _create_skeleton(pos: Vector2):
-	pass
-	#var instance = skeleton_template.instance()
-	#instance.position = map_to_world(pos)
+	var skeleton = Skelly.instance()
+	map_to_world(pos)
+	skeleton.position = map_to_world(pos)# - Vector2(75, 75)
 	#todo, check if this is the best place/way to add this
-	#add_to_parent(stair)
+	add_to_parent(skeleton)
