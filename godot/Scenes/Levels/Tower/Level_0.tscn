@@ -46,8 +46,9 @@ tile_data = PoolIntArray( 65541, 0, 4, 65542, 0, 2, 65543, 0, 2, 65544, 0, 2, 65
 [node name="Interactables" type="TileMap" parent="YSort"]
 tile_set = ExtResource( 4 )
 cell_size = Vector2( 16, 16 )
+centered_textures = true
 format = 1
-tile_data = PoolIntArray( 589828, 4, 0, 655378, 2, 0 )
+tile_data = PoolIntArray( 589828, 4, 0, 589835, 6, 0, 655378, 2, 0 )
 script = ExtResource( 11 )
 Player = ExtResource( 7 )
 
@@ -56,7 +57,6 @@ tile_set = ExtResource( 8 )
 cell_size = Vector2( 16, 16 )
 centered_textures = true
 format = 1
-tile_data = PoolIntArray( 589835, 0, 0 )
 script = ExtResource( 5 )
 Skelly = ExtResource( 9 )
 

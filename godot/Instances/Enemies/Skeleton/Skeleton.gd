@@ -115,6 +115,7 @@ func _on_AttackCooldown_timeout():
 	$AttackCooldown.stop()
 
 func spawn_orb():
+	#todo, add random chance to drop orb, risk vs reward
 	var orb = Orb.instance()
 	orb.position = global_position
 	get_parent().call_deferred('add_child', orb)

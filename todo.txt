@@ -1,18 +1,26 @@
 MVP:
+	add level with old man to trade
+	add trade interface (E to break)
+	prevent player from going to the next level w/o getting the first orb
+Bugs:
+
+Cool Ideas:
+	Screen wipe on level change
+	Change cursor to reflect attack cooldown
+
+--------------------------------------------------
+
+Done:
 	add attack hit boxes
 	add tilemap for enemies
 	add enemies
 	make enemies follow player
 	add orbs to enemies that drop
 	make orbs follow player
-	add level with old man to trade
-	add trade interface (E to break)
-Bugs:
-
-Cool Ideas:
-	Screen wipe on level change
-	Chanage cursor to reflect attack cooldown
-
-Done:
 	Finish floor/wall tilemap
 	add character movement
+Bug Fixes:
+	weird player collision at feet of skeleton
+	weird player collision at pointy bits of level
+	weird player collision on flat surfaces when walking into them, should smooth slide
+		especially where there are 2 collision shapes overlapping

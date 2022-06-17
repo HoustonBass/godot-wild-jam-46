@@ -12,7 +12,7 @@ points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
 points = PoolVector2Array( 16, 32, 0, 32, 0, 0, 16, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=5]
-points = PoolVector2Array( 0, 32, 0, 32, 8, 24, 16, 32, 8, 40 )
+points = PoolVector2Array( 4, 28, 12, 28, 16, 32, 12, 40, 4, 40, 0, 32 )
 
 [resource]
 2/name = "16x16 dungeon ii wall reconfig v04 spritesheet.png 2"

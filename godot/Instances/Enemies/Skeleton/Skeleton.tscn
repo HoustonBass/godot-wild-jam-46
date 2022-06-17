@@ -228,7 +228,8 @@ graph_offset = Vector2( -78.2998, -29.375 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=3]
 
-[sub_resource type="CircleShape2D" id=23]
+[sub_resource type="CapsuleShape2D" id=25]
+radius = 3.0
 
 [node name="Skeleton" type="KinematicBody2D" groups=["Enemy"]]
 collision_mask = 0
@@ -299,9 +300,9 @@ wait_time = 0.75
 autostart = true
 
 [node name="WalkBox" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 18 )
-scale = Vector2( 1, 0.5 )
-shape = SubResource( 23 )
+position = Vector2( 0, 24 )
+rotation = 1.5708
+shape = SubResource( 25 )
 
 [connection signal="timeout" from="RerunNav" to="." method="_on_RerunNav_timeout"]
 [connection signal="timeout" from="AttackCooldown" to="." method="_on_AttackCooldown_timeout"]

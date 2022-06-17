@@ -79,5 +79,6 @@ Skelly = ExtResource( 11 )
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
 cell_y_sort = true
+collision_mask = 0
 format = 1
-tile_data = PoolIntArray( 196617, 2, 1, 196621, 2, 0, 196623, 2, 0, 458760, 1, 0, 458766, 1, 0, 786440, 1, 0, 786446, 1, 0, 1114120, 2, 0, 1114126, 2, 0 )
+tile_data = PoolIntArray( 196617, 2, 1, 196621, 2, 0, 196623, 2, 0, 458760, 1, 0, 458766, 1, 0, 524302, 7, 0, 786440, 1, 0, 786446, 1, 0, 1114120, 2, 0, 1114126, 2, 0 )

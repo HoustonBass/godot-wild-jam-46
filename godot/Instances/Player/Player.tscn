@@ -184,8 +184,9 @@ graph_offset = Vector2( -75.7574, -154.455 )
 radius = 5.0
 height = 5.0
 
-[sub_resource type="CircleShape2D" id=14]
-radius = 4.0
+[sub_resource type="CapsuleShape2D" id=27]
+radius = 2.0
+height = 4.0
 
 [node name="Player" type="KinematicBody2D" groups=["Player"]]
 collision_layer = 0
@@ -236,9 +237,9 @@ monitoring = false
 shape = SubResource( 15 )
 
 [node name="WalkBox" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 7 )
-scale = Vector2( 1, 0.5 )
-shape = SubResource( 14 )
+position = Vector2( 0, 6 )
+rotation = 1.5708
+shape = SubResource( 27 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
