@@ -25,9 +25,8 @@ func _ready():
 			notify_box.transform.scale = Vector2(-1,1)
 		_:
 			print('did not handle direction %s for stairs' % direction)
-	
 
-func _on_Stairs_body_shape_entered(_body_rid, body, _body_shape_index, _local_shape_index):
-	if body.is_in_group("Player"):
-		LevelManager.next_level()
+func _on_Stairs_area_entered(area):
+	if area.is_in_group("Player"):
 		notify_box.call_deferred("set_disabled", true)
+		LevelManager.call_deferred("next_level")

@@ -12,12 +12,11 @@ collision_mask = 2
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-visible = false
 position = Vector2( 8, 8 )
 texture = SubResource( 1 )
 
 [node name="NotifyBox" type="CollisionPolygon2D" parent="."]
 position = Vector2( 8, 8 )
-polygon = PoolVector2Array( -7, 7, -7, -2, -4, -3, 0, -3, 0, 7 )
+polygon = PoolVector2Array( -7, 7, -7, -2, 8, -7, 8, 7 )
 
-[connection signal="body_shape_entered" from="." to="." method="_on_Stairs_body_shape_entered"]
+[connection signal="area_entered" from="." to="." method="_on_Stairs_area_entered"]

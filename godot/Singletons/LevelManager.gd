@@ -8,6 +8,7 @@ var Level_5 = preload("res://Scenes/Levels/Tower/Level_5.tscn")
 
 var level = 1
 var level_map
+
 var current_level = null setget register_level, get_level
 
 func register_level(node):
@@ -31,8 +32,11 @@ func _level_map():
 
 func next_level():
 	level += 1
+	
+	root.remove_child(current_level)
+	current_level.call_deferred("queue_free")
 	var next_level = level_map[level].instance()
-	current_level.queue_free()
+	current_level = next_level
 	root.call_deferred("add_child", next_level)
 
 #registration section

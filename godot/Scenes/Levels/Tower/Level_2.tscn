@@ -15,10 +15,7 @@
 [node name="Level_2" type="Navigation2D"]
 script = ExtResource( 6 )
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color( 0.137255, 0.129412, 0.129412, 1 )
-
-[node name="ColorRect" type="ColorRect" parent="CanvasModulate"]
+[node name="ColorRect" type="ColorRect" parent="."]
 margin_left = -419.0
 margin_top = -178.0
 margin_right = 1581.0
@@ -81,3 +78,6 @@ tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 cell_y_sort = true
 format = 1
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.137255, 0.129412, 0.129412, 1 )

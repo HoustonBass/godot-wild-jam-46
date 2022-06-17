@@ -20,7 +20,7 @@ func _ready():
 	camera.set_zoom(Vector2(0.5, 0.5))
 	state_machine = anim_tree["parameters/playback"]
 	for _i in range(player_data.health):
-		gain_health(null)
+		orbs.add_orb(null)
 
 func _process(_delta):
 	if debug_enabled:
