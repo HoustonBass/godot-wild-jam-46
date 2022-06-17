@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Resources/Tiles/Decorations_small_tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Resources/Tiles/Wall_tiles.tres" type="TileSet" id=2]
@@ -11,21 +11,13 @@
 [ext_resource path="res://Instances/Enemies/Skeleton/Skeleton.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Resources/Tiles/Decorations_large_tiles.tres" type="TileSet" id=10]
 [ext_resource path="res://Scenes/Levels/Interactables.gd" type="Script" id=11]
+[ext_resource path="res://Scenes/Darkness.tscn" type="PackedScene" id=12]
 
-[node name="Level_1" type="Navigation2D"]
+[node name="Level_0" type="Navigation2D"]
 script = ExtResource( 6 )
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -419.0
-margin_top = -178.0
-margin_right = 1581.0
-margin_bottom = 1822.0
-rect_min_size = Vector2( 2000, 2000 )
-color = Color( 0, 0, 0, 1 )
-
-[node name="CanvasModulate" type="CanvasModulate" parent="ColorRect"]
-position = Vector2( 419, 178 )
-color = Color( 0.117647, 0.117647, 0.117647, 1 )
+[node name="Darkness" parent="." instance=ExtResource( 12 )]
+visible = false
 
 [node name="YSort" type="YSort" parent="."]
 
@@ -41,7 +33,7 @@ cell_size = Vector2( 16, 32 )
 cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
 show_collision = true
 format = 1
-tile_data = PoolIntArray( 65541, 0, 4, 65542, 0, 2, 65543, 0, 2, 65544, 0, 2, 65545, 0, 2, 65546, 0, 2, 65547, 0, 2, 65548, 0, 2, 65549, 0, 2, 65550, 0, 2, 65551, 0, 2, 65552, 0, 2, 65553, 0, 10, 131077, 0, 131072, 131089, 0, 131072, 196610, 0, 4, 196611, 0, 2, 196612, 0, 2, 196613, 0, 196618, 196625, 0, 196612, 196626, 0, 2, 196627, 0, 2, 196628, 0, 10, 262146, 0, 131072, 262164, 0, 131072, 327682, 0, 131072, 327700, 0, 131072, 393218, 0, 196612, 393219, 0, 2, 393220, 0, 2, 393221, 0, 10, 393233, 0, 4, 393234, 0, 2, 393235, 0, 2, 393236, 0, 196618, 458757, 0, 131072, 458769, 0, 131072, 524293, 0, 196612, 524294, 0, 2, 524295, 0, 2, 524296, 0, 2, 524297, 0, 2, 524298, 0, 2, 524299, 0, 2, 524300, 0, 2, 524301, 0, 2, 524302, 0, 2, 524303, 0, 2, 524304, 0, 2, 524305, 0, 196618 )
+tile_data = PoolIntArray( 65541, 0, 4, 65542, 0, 2, 65543, 0, 2, 65544, 0, 2, 65545, 0, 2, 65546, 0, 2, 65547, 0, 2, 65548, 0, 2, 65549, 0, 2, 65550, 0, 2, 65551, 0, 2, 65552, 0, 2, 65553, 0, 10, 131077, 0, 131072, 131089, 0, 131072, 196610, 0, 4, 196611, 0, 2, 196612, 0, 2, 196613, 0, 196615, 196614, 0, 2, 196615, 0, 2, 196616, 0, 2, 196617, 0, 2, 196618, 0, 2, 196619, 0, 2, 196620, 0, 2, 196621, 0, 2, 196622, 0, 2, 196623, 0, 2, 196624, 0, 2, 196625, 0, 196615, 196626, 0, 2, 196627, 0, 2, 196628, 0, 10, 262146, 0, 131072, 262164, 0, 131072, 327682, 0, 131072, 327700, 0, 131072, 393218, 0, 196612, 393219, 0, 2, 393220, 0, 2, 393221, 0, 10, 393233, 0, 4, 393234, 0, 2, 393235, 0, 2, 393236, 0, 196618, 458757, 0, 131072, 458769, 0, 131072, 524293, 0, 196612, 524294, 0, 2, 524295, 0, 2, 524296, 0, 2, 524297, 0, 2, 524298, 0, 2, 524299, 0, 2, 524300, 0, 2, 524301, 0, 2, 524302, 0, 2, 524303, 0, 2, 524304, 0, 2, 524305, 0, 196618 )
 
 [node name="Interactables" type="TileMap" parent="YSort"]
 tile_set = ExtResource( 4 )

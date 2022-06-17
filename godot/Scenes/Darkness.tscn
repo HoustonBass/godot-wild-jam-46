@@ -1,0 +1,13 @@
+[gd_scene format=2]
+
+[node name="Darkness" type="ColorRect"]
+margin_left = -419.0
+margin_top = -178.0
+margin_right = 1581.0
+margin_bottom = 1822.0
+rect_min_size = Vector2( 2000, 2000 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+position = Vector2( 419, 178 )
+color = Color( 0.0980392, 0.0980392, 0.0980392, 1 )

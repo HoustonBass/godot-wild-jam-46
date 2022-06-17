@@ -6,3 +6,5 @@
 script = ExtResource( 1 )
 max_health = 0
 health = 0
+time_left = 120
+max_time = 120

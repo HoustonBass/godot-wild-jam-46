@@ -1,6 +1,5 @@
 extends Node
 
-var Level_0 = preload("res://Scenes/Levels/Tower/Level_0.tscn")
 var Level_1 = preload("res://Scenes/Levels/Tower/Level_1.tscn")
 var Level_2 = preload("res://Scenes/Levels/Tower/Level_2.tscn")
 var Level_3 = preload("res://Scenes/Levels/Tower/Level_3.tscn")
@@ -24,7 +23,6 @@ func _ready():
 
 func _level_map():
 	return {
-		0: Level_0,
 		1: Level_1,
 		2: Level_2,
 		3: Level_3,

@@ -71,7 +71,7 @@ color = Color( 1, 0.521569, 0.521569, 1 )
 scale = Vector2( 1.33333, 1.33333 )
 texture = ExtResource( 3 )
 texture_scale = 0.4
-energy = 0.3
+energy = 0.4
 
 [node name="Position2D" type="Position2D" parent="."]
 

@@ -1,9 +1,8 @@
 MVP:
 	add level with old man to trade
 	add trade interface (E to break)
-	prevent player from going to the next level w/o getting the first orb
 Bugs:
-
+	set position instead of rotation for orbs orbit, causing y sort issues
 Cool Ideas:
 	Screen wipe on level change
 	Change cursor to reflect attack cooldown
@@ -19,6 +18,7 @@ Done:
 	make orbs follow player
 	Finish floor/wall tilemap
 	add character movement
+	prevent player from going to the next level w/o getting the first orb
 Bug Fixes:
 	weird player collision at feet of skeleton
 	weird player collision at pointy bits of level

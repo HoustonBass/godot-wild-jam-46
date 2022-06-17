@@ -6,7 +6,7 @@ onready var sprite = $Sprite
 onready var offset_timer = $OffsetTimer
 
 var speed = 1
-var radius = 20
+var radius = 25
 
 export var initial_angle: float
 export var color: int = -1

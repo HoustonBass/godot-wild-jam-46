@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/Tilesets/16x16 dungeon.png" type="Texture" id=1]
 [ext_resource path="res://Instances/Tiles/Stairs/Stairs.gd" type="Script" id=2]
+[ext_resource path="res://Assets/light.png" type="Texture" id=3]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
@@ -18,5 +19,12 @@ texture = SubResource( 1 )
 [node name="NotifyBox" type="CollisionPolygon2D" parent="."]
 position = Vector2( 8, 8 )
 polygon = PoolVector2Array( -7, 7, -7, -2, 8, -7, 8, 7 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 8, 8 )
+texture = ExtResource( 3 )
+texture_scale = 0.1
+color = Color( 0.301961, 0.917647, 1, 1 )
+energy = 2.0
 
 [connection signal="area_entered" from="." to="." method="_on_Stairs_area_entered"]

@@ -1,0 +1,319 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://Assets/UI/GUI.png" type="Texture" id=1]
+[ext_resource path="res://Resources/Themes/UI_Theme.tres" type="Theme" id=2]
+[ext_resource path="res://Scenes/UI/Intro.gd" type="Script" id=3]
+[ext_resource path="res://Assets/UI/Keyboard Black Corn.png" type="Texture" id=4]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 96, 48, 32 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "1"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Background/1:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Background/1:percent_visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "2"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Background/1:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Background/2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Background/2:percent_visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "3"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Background/2:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Background/3:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Background/3:percent_visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "4"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Background/3:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Background/4:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Background/4:percent_visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "End"
+tracks/0/type = "method"
+tracks/0/path = NodePath("..")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "start_game"
+} ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=8]
+animation = "1"
+
+[sub_resource type="AnimationNodeAnimation" id=9]
+animation = "2"
+
+[sub_resource type="AnimationNodeAnimation" id=10]
+animation = "3"
+
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "4"
+
+[sub_resource type="AnimationNodeAnimation" id=19]
+animation = "End"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=12]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=13]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=14]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+
+[sub_resource type="AnimationNodeStateMachine" id=2]
+states/1/node = SubResource( 8 )
+states/1/position = Vector2( 62.5, 92.9844 )
+states/2/node = SubResource( 9 )
+states/2/position = Vector2( 196.5, 93 )
+states/3/node = SubResource( 10 )
+states/3/position = Vector2( 305, 92.5 )
+states/4/node = SubResource( 11 )
+states/4/position = Vector2( 417, 92.5 )
+states/End/node = SubResource( 19 )
+states/End/position = Vector2( 543, 92.7188 )
+transitions = [ "1", "2", SubResource( 12 ), "2", "3", SubResource( 13 ), "3", "4", SubResource( 14 ), "4", "End", SubResource( 20 ) ]
+start_node = "1"
+graph_offset = Vector2( -103.95, -21.4725 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=3]
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 4 )
+region = Rect2( 80, 32, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 4 )
+region = Rect2( 80, 128, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=17]
+animations = [ {
+"frames": [ SubResource( 15 ), SubResource( 16 ) ],
+"loop": true,
+"name": "default",
+"speed": 1.0
+} ]
+
+[node name="Intro" type="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.176471, 0.223529, 0.305882, 1 )
+script = ExtResource( 3 )
+
+[node name="CC" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+
+[node name="Background" type="TextureRect" parent="CC"]
+margin_left = 95.0
+margin_top = 50.0
+margin_right = 545.0
+margin_bottom = 310.0
+rect_min_size = Vector2( 450, 260 )
+texture = SubResource( 1 )
+expand = true
+
+[node name="1" type="Label" parent="CC/Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "One day, you happen upon a tower 
+deep in the forgotten forest.
+
+Barely fifteen feet tall, you know
+you will make quick work of this adventure"
+align = 1
+valign = 1
+
+[node name="2" type="Label" parent="CC/Background"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "Pride in your eyes,
+and your heart set for glory.
+
+You kick past the mangled bones 
+of something for too large to be human"
+align = 1
+valign = 1
+percent_visible = 0.883333
+
+[node name="3" type="Label" parent="CC/Background"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "Pressing through the large oak doors,
+you are met with a small simple room, empty
+except a staircase.
+
+Before you begin ascending the stairs,
+you hear a voice..."
+align = 1
+valign = 1
+
+[node name="4" type="Label" parent="CC/Background"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "\"ASCEND...AND...DIEEE\"
+
+Its time for this thing to meet its maker"
+align = 1
+valign = 1
+percent_visible = 0.1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../CC")
+anims/1 = SubResource( 4 )
+anims/2 = SubResource( 5 )
+anims/3 = SubResource( 6 )
+anims/4 = SubResource( 7 )
+anims/End = SubResource( 18 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 2 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 468, 253 )
+scale = Vector2( 2, 1.8125 )
+frames = SubResource( 17 )
+playing = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
