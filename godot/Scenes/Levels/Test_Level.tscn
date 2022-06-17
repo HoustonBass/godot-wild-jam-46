@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Resources/Tiles/Decorations_large_tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Resources/Tiles/Decorations_small_tiles.tres" type="TileSet" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://Scenes/Levels/Interactables.gd" type="Script" id=7]
 [ext_resource path="res://Instances/Player/Player.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Levels/Level.gd" type="Script" id=9]
+[ext_resource path="res://Resources/Tiles/Enemy_tiles.tres" type="TileSet" id=10]
+[ext_resource path="res://Instances/Enemies/Skeleton/Skeleton.tscn" type="PackedScene" id=11]
 
 [node name="Test_Level" type="Navigation2D"]
 script = ExtResource( 9 )
@@ -20,6 +22,10 @@ margin_right = 1581.0
 margin_bottom = 1822.0
 rect_min_size = Vector2( 2000, 2000 )
 color = Color( 0, 0, 0, 1 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="ColorRect"]
+position = Vector2( 419, 178 )
+color = Color( 0.137255, 0.129412, 0.129412, 1 )
 
 [node name="YSort" type="YSort" parent="."]
 
@@ -62,8 +68,12 @@ script = ExtResource( 7 )
 Player = ExtResource( 8 )
 
 [node name="Enemies" type="TileMap" parent="YSort"]
+tile_set = ExtResource( 10 )
+centered_textures = true
 format = 1
+tile_data = PoolIntArray( 65538, 0, 0, 131074, 0, 0, 131075, 0, 0, 196610, 0, 0, 196611, 0, 0 )
 script = ExtResource( 6 )
+Skelly = ExtResource( 11 )
 
 [node name="Decorations_small" type="TileMap" parent="."]
 tile_set = ExtResource( 2 )
@@ -71,6 +81,3 @@ cell_size = Vector2( 16, 16 )
 cell_y_sort = true
 format = 1
 tile_data = PoolIntArray( 196617, 2, 1, 196621, 2, 0, 196623, 2, 0, 458760, 1, 0, 458766, 1, 0, 786440, 1, 0, 786446, 1, 0, 1114120, 2, 0, 1114126, 2, 0 )
-
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color( 0.137255, 0.129412, 0.129412, 1 )

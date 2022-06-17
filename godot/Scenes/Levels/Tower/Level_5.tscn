@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Resources/Tiles/Decorations_small_tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Resources/Tiles/Wall_tiles.tres" type="TileSet" id=2]
@@ -9,9 +9,20 @@
 [ext_resource path="res://Instances/Player/Player.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Resources/Tiles/Decorations_large_tiles.tres" type="TileSet" id=8]
 [ext_resource path="res://Scenes/Levels/Interactables.gd" type="Script" id=9]
+[ext_resource path="res://Scenes/Levels/Decorations_large.gd" type="Script" id=10]
 
 [node name="Level_5" type="Navigation2D"]
 script = ExtResource( 6 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+position = Vector2( -419, -178 )
+color = Color( 0.137255, 0.129412, 0.129412, 1 )
+
+[node name="ColorRect" type="ColorRect" parent="CanvasModulate"]
+margin_right = 2000.0
+margin_bottom = 2000.0
+rect_min_size = Vector2( 2000, 2000 )
+color = Color( 0, 0, 0, 1 )
 
 [node name="YSort" type="YSort" parent="."]
 
@@ -46,6 +57,7 @@ cell_size = Vector2( 16, 16 )
 cell_tile_origin = 2
 cell_y_sort = true
 format = 1
+script = ExtResource( 10 )
 
 [node name="Pillars" type="TileMap" parent="YSort"]
 tile_set = ExtResource( 1 )

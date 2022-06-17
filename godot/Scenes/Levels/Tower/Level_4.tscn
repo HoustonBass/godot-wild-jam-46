@@ -13,6 +13,16 @@
 [node name="Level_4" type="Navigation2D"]
 script = ExtResource( 6 )
 
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+position = Vector2( -419, -178 )
+color = Color( 0.137255, 0.129412, 0.129412, 1 )
+
+[node name="ColorRect" type="ColorRect" parent="CanvasModulate"]
+margin_right = 2000.0
+margin_bottom = 2000.0
+rect_min_size = Vector2( 2000, 2000 )
+color = Color( 0, 0, 0, 1 )
+
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Floors" type="TileMap" parent="YSort"]
@@ -21,7 +31,6 @@ cell_size = Vector2( 16, 16 )
 format = 1
 
 [node name="Enemies" type="TileMap" parent="YSort"]
-visible = false
 format = 1
 script = ExtResource( 5 )
 
