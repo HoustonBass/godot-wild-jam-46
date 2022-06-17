@@ -85,5 +85,5 @@ position = Vector2( 0, 4.58475 )
 shape = SubResource( 4 )
 
 [connection signal="body_entered" from="Sprite/CollectArea" to="." method="_on_CollectArea_body_entered"]
-[connection signal="body_shape_entered" from="Sprite/MagnetizeArea" to="." method="_on_MagnetizeArea_body_shape_entered"]
-[connection signal="body_shape_exited" from="Sprite/MagnetizeArea" to="." method="_on_MagnetizeArea_body_shape_exited"]
+[connection signal="body_entered" from="Sprite/MagnetizeArea" to="." method="_on_MagnetizeArea_body_entered"]
+[connection signal="body_exited" from="Sprite/MagnetizeArea" to="." method="_on_MagnetizeArea_body_exited"]

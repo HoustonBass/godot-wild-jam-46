@@ -5,6 +5,7 @@ onready var debug_path:Line2D = $DebugLine
 onready var player_detector:RayCast2D = $PlayerDetector
 onready var rerun_nav:Timer = $RerunNav
 onready var anim_tree:AnimationTree = $AnimationTree
+onready var hit_box = $Sprite/HitBox
 
 export var enemy_data: Resource = EnemyData
 export var Orb: PackedScene = null
@@ -44,7 +45,6 @@ func _process(_delta):
 	if found_player:
 		if attacking:
 			check_attack_collision()
-			velocity = Vector2.ZERO
 		else:
 			if check_attack_range():
 				return
@@ -85,7 +85,7 @@ func generate_path():
 
 func check_player_in_range():
 	var found = player_detector.get_collider()
-	return found and (found == player or found.get_parent() == player)
+	return found and (found.is_in_group("Player"))
 
 func find_player():
 	if check_player_in_range():
@@ -103,8 +103,8 @@ func check_attack_range():
 
 func lose_health():
 	health -= 1
-	if health == 0:
-		state_machine.travel('Die')
+	if health <= 0:
+		state_machine.travel("Die")
 
 func _on_RerunNav_timeout():
 	generate_path()
@@ -122,10 +122,8 @@ func spawn_orb():
 func check_attack_collision():
 	if attack_collided:
 		return
-	for area in $Sprite/HitBox.get_overlapping_areas():
-		#print(area)
-		if area.get_parent().is_in_group('Player'):
+	for area in hit_box.get_overlapping_areas():
+		if area.is_in_group('Player'):
 			attack_collided = true
-			print(area.get_parent())
-			#area.get_parent().lose_health()
+			player.lose_health()
 	

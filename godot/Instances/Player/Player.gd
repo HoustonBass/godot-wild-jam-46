@@ -12,6 +12,7 @@ export var player_data: Resource = PlayerData
 var state_machine: AnimationNodeStateMachinePlayback
 
 var speed = 60.0
+var velocity = Vector2.ZERO
 var dead: bool = false
 var attack_collided: Array = []
 
@@ -27,28 +28,36 @@ func _process(_delta):
 			gain_health(null)
 		if Input.is_action_just_pressed("ui_cancel"):
 			lose_health()
+	if dead:
+		return
+
 	if attacking:
 		check_attack_collision()
 	elif Input.is_action_just_pressed("ui_action"):
 		attack()
-	
-	var movementDir = Vector2.ZERO
-	if dead:
-		return
-	
-	set_dir()
-	if Input.is_action_pressed("ui_right"):
-		movementDir += Vector2.RIGHT
-	if Input.is_action_pressed("ui_left"):
-		movementDir += Vector2.LEFT
-	if Input.is_action_pressed("ui_up"):
-		movementDir += Vector2.UP
-	if Input.is_action_pressed("ui_down"):
-		movementDir += Vector2.DOWN
-	
-	var vel = movementDir.normalized() * speed
-	#todo: getting close and personal with walls is wonky
-	var _collision = move_and_slide(vel)
+	else:
+		var movementDir = Vector2.ZERO
+		
+		set_dir()
+		if Input.is_action_pressed("ui_right"):
+			movementDir += Vector2.RIGHT
+		if Input.is_action_pressed("ui_left"):
+			movementDir += Vector2.LEFT
+		if Input.is_action_pressed("ui_up"):
+			movementDir += Vector2.UP
+		if Input.is_action_pressed("ui_down"):
+			movementDir += Vector2.DOWN
+		
+		velocity = movementDir.normalized() * speed
+		#todo: getting close and personal with walls is wonky
+		move()
+
+func move():
+	if velocity == Vector2.ZERO:
+		state_machine.travel("Idle")
+	else:
+		state_machine.travel("Walk")
+	velocity = move_and_slide(velocity)
 
 func set_dir():
 	var mouse_pos = get_global_mouse_position()
@@ -58,14 +67,16 @@ func set_dir():
 		sprite.scale = Vector2(-1,1)
 
 func attack():
+	attacking = true
 	state_machine.travel("Attack")
 	attack_collided = []
 
 func check_attack_collision():
 	for area in $Sprite/HitBox.get_overlapping_areas():
-		if !attack_collided.has(area) and area.get_parent().is_in_group('Enemy'):
+		if !attack_collided.has(area) and area.is_in_group('Enemy'):
 			attack_collided.push_front(area)
-			area.get_parent().lose_health()
+			#todo: how do you scale the tree?
+			area.get_parent().get_parent().lose_health()
 
 func gain_health(orb):
 	orbs.add_orb(orb)

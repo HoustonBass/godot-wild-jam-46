@@ -29,7 +29,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.1, 0.3 ),
+"times": PoolRealArray( 0, 0.6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
@@ -86,7 +86,7 @@ tracks/2/keys = {
 "values": [  ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("HurtBox:monitorable")
+tracks/3/path = NodePath("Sprite/HurtBox:monitorable")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -116,7 +116,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=4]
-resource_name = "Walk - Right"
+resource_name = "Walk"
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -142,7 +142,7 @@ animation = "Die"
 animation = "Idle"
 
 [sub_resource type="AnimationNodeAnimation" id=11]
-animation = "Walk - Right"
+animation = "Walk"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=12]
 
@@ -171,21 +171,21 @@ states/Die/node = SubResource( 17 )
 states/Die/position = Vector2( 384.375, -16.7675 )
 states/Idle/node = SubResource( 7 )
 states/Idle/position = Vector2( 385, 106.5 )
-"states/Walk - Right/node" = SubResource( 11 )
-"states/Walk - Right/position" = Vector2( 610, 169.938 )
-transitions = [ "Walk - Right", "Idle", SubResource( 12 ), "Idle", "Walk - Right", SubResource( 13 ), "Idle", "Die", SubResource( 18 ), "Walk - Right", "Die", SubResource( 20 ), "Idle", "Attack", SubResource( 22 ), "Walk - Right", "Attack", SubResource( 23 ), "Attack", "Walk - Right", SubResource( 24 ), "Attack", "Idle", SubResource( 25 ), "Attack", "Die", SubResource( 26 ) ]
+states/Walk/node = SubResource( 11 )
+states/Walk/position = Vector2( 610, 169.938 )
+transitions = [ "Walk", "Idle", SubResource( 12 ), "Idle", "Walk", SubResource( 13 ), "Idle", "Die", SubResource( 18 ), "Walk", "Die", SubResource( 20 ), "Idle", "Attack", SubResource( 22 ), "Walk", "Attack", SubResource( 23 ), "Attack", "Walk", SubResource( 24 ), "Attack", "Idle", SubResource( 25 ), "Attack", "Die", SubResource( 26 ) ]
 start_node = "Idle"
 end_node = "Die"
-graph_offset = Vector2( -117.45, -20.955 )
+graph_offset = Vector2( -75.7574, -154.455 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=2]
-
-[sub_resource type="CircleShape2D" id=14]
-radius = 4.0
 
 [sub_resource type="CapsuleShape2D" id=15]
 radius = 5.0
 height = 5.0
+
+[sub_resource type="CircleShape2D" id=14]
+radius = 4.0
 
 [node name="Player" type="KinematicBody2D" groups=["Player"]]
 collision_layer = 0
@@ -199,7 +199,7 @@ playback_process_mode = 2
 anims/Attack = SubResource( 5 )
 anims/Die = SubResource( 16 )
 anims/Idle = SubResource( 3 )
-"anims/Walk - Right" = SubResource( 4 )
+anims/Walk = SubResource( 4 )
 blend_times = [ "Idle", "Idle", 0.003 ]
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
@@ -216,10 +216,9 @@ Orb = ExtResource( 4 )
 texture = ExtResource( 1 )
 hframes = 10
 vframes = 24
-frame = 3
+frame = 2
 
 [node name="HitBox" type="Area2D" parent="Sprite"]
-visible = false
 collision_layer = 0
 collision_mask = 4
 monitorable = false
@@ -228,24 +227,22 @@ monitorable = false
 polygon = PoolVector2Array( 5, 8, 16, 0, 8, -9 )
 disabled = true
 
+[node name="HurtBox" type="Area2D" parent="Sprite" groups=["Player"]]
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/HurtBox"]
+shape = SubResource( 15 )
+
 [node name="WalkBox" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( 0, 8 )
+position = Vector2( 0, 7 )
 scale = Vector2( 1, 0.5 )
 shape = SubResource( 14 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 zoom = Vector2( 0.25, 0.25 )
-
-[node name="HurtBox" type="Area2D" parent="."]
-visible = false
-collision_layer = 2
-collision_mask = 0
-monitoring = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-shape = SubResource( 15 )
 
 [node name="Light2D" type="Light2D" parent="."]
 texture = ExtResource( 6 )

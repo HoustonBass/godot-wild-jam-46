@@ -6,6 +6,8 @@
 [ext_resource path="res://Resources/Instances/Enemies/Skelly/Skelly_data.tres" type="Resource" id=4]
 [ext_resource path="res://Instances/Orb/GroundOrb.tscn" type="PackedScene" id=5]
 
+[sub_resource type="CapsuleShape2D" id=11]
+
 [sub_resource type="OccluderPolygon2D" id=24]
 polygon = PoolVector2Array( -7, -5, 9, -16, 9, 2, 11, 18, 5, 6, -4, 18, -1, 1, -1, -6 )
 
@@ -96,7 +98,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=5]
 resource_name = "Die"
 length = 0.8
-loop = true
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -202,10 +203,13 @@ auto_advance = true
 [sub_resource type="AnimationNodeStateMachineTransition" id=18]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=19]
+priority = 0
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=20]
+priority = 0
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=21]
+priority = 0
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=22]
 
@@ -224,8 +228,6 @@ graph_offset = Vector2( -78.2998, -29.375 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=3]
 
-[sub_resource type="CapsuleShape2D" id=11]
-
 [sub_resource type="CircleShape2D" id=23]
 
 [node name="Skeleton" type="KinematicBody2D" groups=["Enemy"]]
@@ -233,16 +235,23 @@ collision_mask = 0
 script = ExtResource( 1 )
 enemy_data = ExtResource( 4 )
 Orb = ExtResource( 5 )
+can_attack = false
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 2 )
 hframes = 8
 vframes = 6
-frame = 18
+frame = 17
+
+[node name="HurtBox" type="Area2D" parent="Sprite" groups=["Enemy"]]
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/HurtBox"]
+shape = SubResource( 11 )
 
 [node name="HitBox" type="Area2D" parent="Sprite"]
-visible = false
 collision_layer = 0
 collision_mask = 2
 monitorable = false
@@ -253,7 +262,6 @@ polygon = PoolVector2Array( -2.66667, -26.6667, 40, -26.6667, 62.6667, -22.6667,
 disabled = true
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite"]
-visible = false
 scale = Vector2( 1.33333, 1.33333 )
 occluder = SubResource( 24 )
 
@@ -275,7 +283,6 @@ active = true
 parameters/playback = SubResource( 3 )
 
 [node name="PlayerDetector" type="RayCast2D" parent="."]
-visible = false
 enabled = true
 cast_to = Vector2( 0, 100 )
 collision_mask = 3
@@ -291,16 +298,7 @@ wait_time = 0.75
 [node name="AttackCooldown" type="Timer" parent="."]
 autostart = true
 
-[node name="HurtBox" type="Area2D" parent="."]
-visible = false
-collision_layer = 4
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-shape = SubResource( 11 )
-
 [node name="WalkBox" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( 0, 18 )
 scale = Vector2( 1, 0.5 )
 shape = SubResource( 23 )
