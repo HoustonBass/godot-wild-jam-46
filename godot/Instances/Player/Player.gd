@@ -1,23 +1,42 @@
 extends KinematicBody2D
 
 onready var orbs = $Orbs
-onready var animation_player = $AnimationPlayer
 onready var sprite:Sprite = $Sprite
+onready var anim_tree:AnimationTree = $AnimationTree
+onready var camera:Camera2D = $Camera2D
 
+export var debug_enabled: bool = false
+export var attacking: bool = false
 export var player_data: Resource = PlayerData
 
-enum Direction {RIGHT, LEFT}
+var state_machine: AnimationNodeStateMachinePlayback
 
-var dir = Direction.RIGHT
 var speed = 60.0
+var dead: bool = false
+var attack_collided: Array = []
 
 func _ready():
+	camera.set_zoom(Vector2(0.5, 0.5))
+	state_machine = anim_tree["parameters/playback"]
 	for _i in range(player_data.health):
-		gain_health()
+		gain_health(null)
 
 func _process(_delta):
-	set_dir()
+	if debug_enabled:
+		if Input.is_action_just_pressed("ui_accept"):
+			gain_health(null)
+		if Input.is_action_just_pressed("ui_cancel"):
+			lose_health()
+	if attacking:
+		check_attack_collision()
+	elif Input.is_action_just_pressed("ui_action"):
+		attack()
+	
 	var movementDir = Vector2.ZERO
+	if dead:
+		return
+	
+	set_dir()
 	if Input.is_action_pressed("ui_right"):
 		movementDir += Vector2.RIGHT
 	if Input.is_action_pressed("ui_left"):
@@ -27,13 +46,6 @@ func _process(_delta):
 	if Input.is_action_pressed("ui_down"):
 		movementDir += Vector2.DOWN
 	
-	if Input.is_action_just_pressed("ui_action"):
-		attack()
-	if Input.is_action_just_pressed("ui_accept"):
-		gain_health()
-	if Input.is_action_just_pressed("ui_cancel"):
-		lose_health()
-	
 	var vel = movementDir.normalized() * speed
 	#todo: getting close and personal with walls is wonky
 	var _collision = move_and_slide(vel)
@@ -41,14 +53,31 @@ func _process(_delta):
 func set_dir():
 	var mouse_pos = get_global_mouse_position()
 	if mouse_pos.x > global_position.x:
-		sprite.set_flip_h(false)
-		dir = Direction.LEFT
+		sprite.scale = Vector2(1,1)
 	else:
-		sprite.set_flip_h(true)
-		dir = Direction.LEFT
+		sprite.scale = Vector2(-1,1)
+
 func attack():
-	animation_player.play("Attack - Right")
-func gain_health():
-	orbs.add_orb()
+	state_machine.travel("Attack")
+	attack_collided = []
+
+func check_attack_collision():
+	for area in $Sprite/HitBox.get_overlapping_areas():
+		if !attack_collided.has(area) and area.get_parent().is_in_group('Enemy'):
+			attack_collided.push_front(area)
+			area.get_parent().lose_health()
+
+func gain_health(orb):
+	orbs.add_orb(orb)
+	player_data.health += 1
 func lose_health():
 	orbs.remove_orb()
+	player_data.health -= 1
+	if player_data.health == 0:
+		state_machine.travel("Die")
+		dead = true
+		Engine.time_scale = 0.3
+
+func after_death():
+	Engine.time_scale = 1.0
+	

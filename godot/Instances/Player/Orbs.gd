@@ -4,9 +4,11 @@ export var Orb: PackedScene
 
 var orb_count = 0
 
-func add_orb():
+func add_orb(ground_orb):
 	orb_count += 1
 	var orb = Orb.instance()
+	if ground_orb:
+		orb.color = ground_orb.color
 	orb.initial_angle = find_hole()
 	reposition_orbs()
 	add_child(orb)

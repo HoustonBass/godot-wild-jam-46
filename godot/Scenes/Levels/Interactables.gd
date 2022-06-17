@@ -2,6 +2,7 @@ extends TileMapSpawner
 
 const Stair = preload("res://Instances/Tiles/Stairs/Stairs.tscn")
 export var Player: PackedScene
+const Orb = preload("res://Instances/Orb/GroundOrb.tscn")
 
 func handle_tile(tile_name: String, pos: Vector2):
 	match tile_name:
@@ -11,6 +12,8 @@ func handle_tile(tile_name: String, pos: Vector2):
 			_create_player(pos, true)
 		'Stair_Down_Left':
 			_create_player(pos, false)
+		'Ground_Orb':
+			_create_ground_orb(pos)
 		_:
 			print('Could not create instance for tile: %s' % tile_name)
 
@@ -27,3 +30,9 @@ func _create_player(pos, right:bool):
 	player.position = map_to_world(offset_pos)
 	add_to_parent(player)
 	LevelManager.register_player(player)
+
+func _create_ground_orb(pos):
+	var orb = Orb.instance()
+	orb.position = map_to_world(pos)
+	add_to_parent(orb)
+	set_cellv(pos, -1)

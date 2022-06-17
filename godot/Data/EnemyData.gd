@@ -1,0 +1,2 @@
+extends EntityData
+class_name EnemyData

@@ -1,5 +1,2 @@
-extends Resource
+extends EntityData
 class_name PlayerData
-
-export var max_health: int
-export var health: int

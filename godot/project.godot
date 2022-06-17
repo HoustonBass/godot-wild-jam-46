@@ -9,7 +9,17 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "EntityData",
+"class": "EnemyData",
+"language": "GDScript",
+"path": "res://Data/EnemyData.gd"
+}, {
 "base": "Resource",
+"class": "EntityData",
+"language": "GDScript",
+"path": "res://Data/EntityData.gd"
+}, {
+"base": "EntityData",
 "class": "PlayerData",
 "language": "GDScript",
 "path": "res://Data/PlayerData.gd"
@@ -20,6 +30,8 @@ _global_script_classes=[ {
 "path": "res://Instances/TileMapSpawner.gd"
 } ]
 _global_script_class_icons={
+"EnemyData": "",
+"EntityData": "",
 "PlayerData": "",
 "TileMapSpawner": ""
 }
@@ -27,7 +39,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Raze The Tower"
-run/main_scene="res://Scenes/Levels/Level_1.tscn"
+run/main_scene="res://Scenes/Levels/Test_Level.tscn"
 config/icon="res://icon.png"
 
 [autoload]

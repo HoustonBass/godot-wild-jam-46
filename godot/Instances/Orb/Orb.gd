@@ -9,13 +9,17 @@ var speed = 1
 var radius = 20
 
 export var initial_angle: float
+export var color: int = -1
+
 var total_offset = 0.0
 
 #todo: add broken orb particles
 
 func _ready():
 	rng.randomize()
-	sprite.frame = rng.randi_range(0, 7) 
+	if color < 0 or color > 7:
+		color = rng.randi_range(0, 7)
+	sprite.frame = color
 	sprite.position = Vector2(radius, 0)
 	rotation = initial_angle
 

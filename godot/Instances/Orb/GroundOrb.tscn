@@ -1,18 +1,21 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Instances/Orbs/orbs.png" type="Texture" id=1]
 [ext_resource path="res://Instances/Orb/GroundOrb.gd" type="Script" id=2]
+[ext_resource path="res://Assets/light.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
+radius = 12.5
 
 [sub_resource type="CircleShape2D" id=3]
+radius = 15.0
 
 [sub_resource type="Animation" id=2]
 resource_name = "Float"
 length = 4.0
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("OrbSprite:position")
+tracks/0/path = NodePath("Sprite:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -44,7 +47,7 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource( 2 )
 
-[node name="OrbSprite" type="Sprite" parent="."]
+[node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, 4.58475 )
 scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 1 )
@@ -53,23 +56,24 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollectArea" type="Area2D" parent="OrbSprite" groups=["Collect"]]
-visible = false
-scale = Vector2( 1.25, 1.25 )
+[node name="CollectArea" type="Area2D" parent="Sprite" groups=["Collect"]]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OrbSprite/CollectArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/CollectArea"]
 shape = SubResource( 1 )
 
-[node name="MagnetizeArea" type="Area2D" parent="OrbSprite" groups=["Magnetize"]]
-visible = false
-scale = Vector2( 1.33333, 1.33333 )
+[node name="MagnetizeArea" type="Area2D" parent="Sprite" groups=["Magnetize"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OrbSprite/MagnetizeArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/MagnetizeArea"]
 scale = Vector2( 3, 3 )
 shape = SubResource( 3 )
+
+[node name="Light2D" type="Light2D" parent="Sprite"]
+texture = ExtResource( 3 )
+texture_scale = 0.2
+energy = 0.6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Float"
@@ -80,6 +84,6 @@ visible = false
 position = Vector2( 0, 4.58475 )
 shape = SubResource( 4 )
 
-[connection signal="body_shape_entered" from="OrbSprite/CollectArea" to="." method="_on_CollectArea_body_shape_entered"]
-[connection signal="body_shape_entered" from="OrbSprite/MagnetizeArea" to="." method="_on_MagnetizeArea_body_shape_entered"]
-[connection signal="body_shape_exited" from="OrbSprite/MagnetizeArea" to="." method="_on_MagnetizeArea_body_shape_exited"]
+[connection signal="body_entered" from="Sprite/CollectArea" to="." method="_on_CollectArea_body_entered"]
+[connection signal="body_shape_entered" from="Sprite/MagnetizeArea" to="." method="_on_MagnetizeArea_body_shape_entered"]
+[connection signal="body_shape_exited" from="Sprite/MagnetizeArea" to="." method="_on_MagnetizeArea_body_shape_exited"]

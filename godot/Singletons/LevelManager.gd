@@ -1,10 +1,10 @@
 extends Node
 
-var Level_1 = preload("res://Scenes/Levels/Level_1.tscn")
-var Level_2 = preload("res://Scenes/Levels/Level_2.tscn")
-var Level_3 = preload("res://Scenes/Levels/Level_3.tscn")
-var Level_4 = preload("res://Scenes/Levels/Level_4.tscn")
-var Level_5 = preload("res://Scenes/Levels/Level_5.tscn")
+var Level_1 = preload("res://Scenes/Levels/Tower/Level_1.tscn")
+var Level_2 = preload("res://Scenes/Levels/Tower/Level_2.tscn")
+var Level_3 = preload("res://Scenes/Levels/Tower/Level_3.tscn")
+var Level_4 = preload("res://Scenes/Levels/Tower/Level_4.tscn")
+var Level_5 = preload("res://Scenes/Levels/Tower/Level_5.tscn")
 
 var level = 1
 var level_map
