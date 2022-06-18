@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Skeleton die - Death Sound 1.mp3-066455217f6ba11ea1d9613a7b6343a1.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/Skeleton die - Death Sound 1.mp3"
+dest_files=[ "res://.import/Skeleton die - Death Sound 1.mp3-066455217f6ba11ea1d9613a7b6343a1.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

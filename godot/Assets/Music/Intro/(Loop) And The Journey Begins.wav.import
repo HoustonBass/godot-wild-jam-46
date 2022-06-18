@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/(Loop) And The Journey Begins.wav-37e7e4795bf43944081fad9bb46e26db.sample"
+
+[deps]
+
+source_file="res://Assets/Music/Intro/(Loop) And The Journey Begins.wav"
+dest_files=[ "res://.import/(Loop) And The Journey Begins.wav-37e7e4795bf43944081fad9bb46e26db.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

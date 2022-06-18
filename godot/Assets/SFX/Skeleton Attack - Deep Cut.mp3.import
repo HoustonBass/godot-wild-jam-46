@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Skeleton Attack - Deep Cut.mp3-f098fbe7a3a62e86e5b49eff01e3a879.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/Skeleton Attack - Deep Cut.mp3"
+dest_files=[ "res://.import/Skeleton Attack - Deep Cut.mp3-f098fbe7a3a62e86e5b49eff01e3a879.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

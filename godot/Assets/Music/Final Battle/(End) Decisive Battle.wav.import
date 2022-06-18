@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/(End) Decisive Battle.wav-1f3e52180f8a037a135d5b15c4cc27a5.sample"
+
+[deps]
+
+source_file="res://Assets/Music/Final Battle/(End) Decisive Battle.wav"
+dest_files=[ "res://.import/(End) Decisive Battle.wav-1f3e52180f8a037a135d5b15c4cc27a5.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

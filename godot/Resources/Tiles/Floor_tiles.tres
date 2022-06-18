@@ -1,6 +1,4 @@
-[gd_resource type="TileSet" load_steps=11 format=2]
-
-[ext_resource path="res://Assets/Tilesets/16x16 dungeon.png" type="Texture" id=1]
+[gd_resource type="TileSet" load_steps=10 format=2]
 
 [sub_resource type="NavigationPolygon" id=10]
 vertices = PoolVector2Array( 0, 0, 16, 0, 32, 0, 32, 16, 32, 32, 16, 32, 0, 32, 0, 16 )
@@ -40,7 +38,6 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 
 [resource]
 4/name = "Floor Tiles"
-4/texture = ExtResource( 1 )
 4/tex_offset = Vector2( 0, 0 )
 4/modulate = Color( 1, 1, 1, 1 )
 4/region = Rect2( 0, 128, 32, 32 )
@@ -63,7 +60,6 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 4/shapes = [  ]
 4/z_index = 0
 9/name = "Stairs"
-9/texture = ExtResource( 1 )
 9/tex_offset = Vector2( 0, 0 )
 9/modulate = Color( 1, 1, 1, 1 )
 9/region = Rect2( 80, 128, 64, 16 )
@@ -84,7 +80,6 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 9/shapes = [  ]
 9/z_index = 0
 11/name = "Big Tile"
-11/texture = ExtResource( 1 )
 11/tex_offset = Vector2( 0, 0 )
 11/modulate = Color( 1, 1, 1, 1 )
 11/region = Rect2( 32, 128, 32, 32 )

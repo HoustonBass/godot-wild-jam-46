@@ -252,8 +252,8 @@ anchor_bottom = 1.0
 text = "One day, you happen upon a tower 
 deep in the forgotten forest.
 
-Barely fifteen feet tall, you know
-you will make quick work of this adventure"
+You feel the presence of an
+dark magic beconing you to enter"
 align = 1
 valign = 1
 
@@ -312,6 +312,7 @@ parameters/playback = SubResource( 3 )
 position = Vector2( 468, 253 )
 scale = Vector2( 2, 1.8125 )
 frames = SubResource( 17 )
+frame = 1
 playing = true
 
 [node name="Camera2D" type="Camera2D" parent="."]

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/(Loop) Exploring The Unknown.wav-9aaa479d4305aebd52847b1d969dc3ff.sample"
+
+[deps]
+
+source_file="res://Assets/Music/Explore/(Loop) Exploring The Unknown.wav"
+dest_files=[ "res://.import/(Loop) Exploring The Unknown.wav-9aaa479d4305aebd52847b1d969dc3ff.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

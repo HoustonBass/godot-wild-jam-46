@@ -17,7 +17,6 @@
 script = ExtResource( 6 )
 
 [node name="Darkness" parent="." instance=ExtResource( 12 )]
-visible = false
 
 [node name="YSort" type="YSort" parent="."]
 

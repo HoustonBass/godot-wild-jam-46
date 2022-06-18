@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Orb lose - Death Sound 2.mp3-9e2f141296958d7abbc8adcb6543fd9a.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/Orb lose - Death Sound 2.mp3"
+dest_files=[ "res://.import/Orb lose - Death Sound 2.mp3-9e2f141296958d7abbc8adcb6543fd9a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
