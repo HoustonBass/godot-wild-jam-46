@@ -10,6 +10,7 @@ var state_machine: AnimationNodeStateMachinePlayback
 
 func _ready():
 	LevelManager.register_level(self)
+	MusicPlayer.swap_to_track(MusicPlayer.Songs.Intro)
 	max_anim_states = background.get_child_count()
 	for child in background.get_children():
 		child.visible = false

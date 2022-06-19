@@ -1,0 +1,42 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Singletons/MusicPlayer/MusicPlayer.gd" type="Script" id=1]
+[ext_resource path="res://Singletons/MusicPlayer/TrackPlayer.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Music/Intro/(Intro) And The Journey Begins.wav" type="AudioStream" id=3]
+[ext_resource path="res://Assets/Music/Intro/(Loop) And The Journey Begins.wav" type="AudioStream" id=4]
+[ext_resource path="res://Assets/Music/Explore/(Loop) Exploring The Unknown.wav" type="AudioStream" id=5]
+[ext_resource path="res://Assets/Music/Explore/(Intro) Exploring The Unknown.wav" type="AudioStream" id=6]
+[ext_resource path="res://Assets/Music/Final Battle/(Loop) Decisive Battle.wav" type="AudioStream" id=7]
+
+[sub_resource type="Animation" id=2]
+resource_name = "To Player 1"
+
+[sub_resource type="Animation" id=1]
+resource_name = "To Player 2"
+
+[node name="MusicPlayer" type="Node"]
+pause_mode = 2
+script = ExtResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/To Player 1" = SubResource( 2 )
+"anims/To Player 2" = SubResource( 1 )
+
+[node name="IntroMusic" type="AudioStreamPlayer" parent="."]
+script = ExtResource( 2 )
+intro = ExtResource( 3 )
+loop = ExtResource( 4 )
+
+[node name="DungeonMusic" type="AudioStreamPlayer" parent="."]
+script = ExtResource( 2 )
+intro = ExtResource( 6 )
+loop = ExtResource( 5 )
+
+[node name="BossMusic" type="AudioStreamPlayer" parent="."]
+script = ExtResource( 2 )
+loop = ExtResource( 7 )
+
+[node name="CreditsMusic" type="AudioStreamPlayer" parent="."]
+script = ExtResource( 2 )
+intro = ExtResource( 3 )
+loop = ExtResource( 4 )
